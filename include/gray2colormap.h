@@ -26,8 +26,6 @@
 #include "std_msgs/Int32MultiArray.h"
 #include "sensor_msgs/Image.h"
 #include "sensor_msgs/image_encodings.h"
-#include "SPI.h"
-#include "Lepton_I2C.h" //Including the I@C functionality
 
 //OPencv + cv_bridge
 #include <opencv2/imgproc/imgproc.hpp>
@@ -50,18 +48,23 @@ private:
 	ros::NodeHandle nh;
 	ros::Subscriber ir_8bit;
 	ros::Subscriber ir_16bit;
+	ros::Subscriber ir_struct;
 	ros::Publisher image_mono;
 	ros::Publisher image_raw;
+	ros::Publisher image_struct;
 
 public:
 	gray2colormap();
 	void callback8bitimage(const sensor_msgs::Image::ConstPtr &msg);
 	void callback16bitimage(const sensor_msgs::Image::ConstPtr &msg);
+	void callbackstructimage(const sensor_msgs::Image::ConstPtr &msg);
 	sensor_msgs::Image mono_image;
 	sensor_msgs::Image raw_image;
+	sensor_msgs::Image structure_image;
 };
 
 
 
 
 #endif /* GRAY2COLORMAP_INCLUDE_GRAY2COLORMAP_H_ */
+

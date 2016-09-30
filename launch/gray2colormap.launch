@@ -1,0 +1,4 @@
+<launch>
+	<node pkg="gray2colormap" type="gray2colormap" name="gray2colormap" output="screen">
+	</node>
+</launch>
